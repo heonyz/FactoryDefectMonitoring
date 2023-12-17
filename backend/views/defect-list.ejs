@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defect List</title>
+</head>
+<body>
+    <h1>Defect List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Device ID</th>
+                <th>Image Path</th>
+                <th>Detected At</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% defects.forEach(defect => { %>
+                <tr>
+                    <td><%= defect.id %></td>
+                    <td><%= defect.device_id %></td>
+                    <td><%= defect.image_path %></td>
+                    <td><%= defect.detected_at %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <h2>Add New Defect</h2>
+    <% if (error) { %>
+        <p style="color:red;"><%= error %></p>
+    <% } %>
+    <form action="/userhome/mypage/defect-list" method="POST">
+        <label for="device_id">Device ID:</label>
+        <input type="number" id="device_id" name="device_id" required><br>
+
+        <label for="image_path">Image Path:</label>
+        <input type="text" id="image_path" name="image_path" required><br>
+
+        <button type="submit">Add Defect</button>
+    </form>
+</body>
+</html>
+

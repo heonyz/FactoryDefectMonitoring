@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Upload</title>
+</head>
+<body>
+    <form id="uploadForm">
+        <input type="file" id="imageInput" multiple>
+        <input type="button" value="사진 업로드" onclick="openFolder()">
+        <textarea id="fileNames"></textarea>
+        <input type="button" value="전송하기" onclick="sendImages()">
+    </form>
+
+    <script>
+        const ws = new WebSocket('ws://localhost:8080');
+
+        function openFolder() {
+        
+        }
+
+        document.getElementById('imageInput').addEventListener('change', function() {
+            const files = this.files;
+            const fileNames = Array.from(files).map(file => file.name);
+            document.getElementById('fileNames').value = fileNames.join(', ');
+        });
+
+        function sendImages() {
+            const fileNames = document.getElementById('fileNames').value;
+            ws.send(fileNames);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Device List</title>
+</head>
+<body>
+  <h1>Your Devices</h1>
+  <table border="1">
+    <tr>
+      <th>Device Name</th>
+      <th>Device Type</th>
+      <th>Error Path</th>
+      <th>Success Count</th>
+      <th>Fail Count</th>
+      <th>Created At</th>
+      <th>Updated At</th>
+      <th>Details</th>
+    </tr>
+    <% devices.forEach(device => { %>
+      <tr>
+        <td><%= device.devicename %></td>
+        <td><%= device.devicetype %></td>
+        <td><%= device.errorpath %></td>
+        <td><%= device.successcount %></td>
+        <td><%= device.failcount %></td>
+        <td><%= device.created_at %></td>
+        <td><%= device.updated_at %></td>
+        <td><a href="/userhome/mypage/devicelist/info/<%= device.id %>"><button>View Details</button></a></td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
+

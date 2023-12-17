@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Device Info</title>
+</head>
+<body>
+  <h1>Device Info</h1>
+  <table border="1">
+    <tr>
+      <th>Device Name</th>
+      <td><%= device.devicename %></td>
+    </tr>
+    <tr>
+      <th>Device Type</th>
+      <td><%= device.devicetype %></td>
+    </tr>
+    <tr>
+      <th>Error Path</th>
+      <td><%= device.errorpath %></td>
+    </tr>
+    <tr>
+      <th>Success Count</th>
+      <td><%= device.successcount %></td>
+    </tr>
+    <tr>
+      <th>Fail Count</th>
+      <td><%= device.failcount %></td>
+    </tr>
+    <tr>
+      <th>Created At</th>
+      <td><%= device.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated At</th>
+      <td><%= device.updated_at %></td>
+    </tr>
+  </table>
+  <a href="/userhome/mypage/devicelist"><button>Back to Device List</button></a>
+</body>
+</html>
+
